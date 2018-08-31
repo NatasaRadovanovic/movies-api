@@ -11,14 +11,14 @@ class Movie extends Model
     ];
 
     
-     public static  function search($search)
+     public static  function search($search, $take)
     { 
         $movies = Movie::where('title','like','%'.$search.'%')
                ->orderBy('title')
+               ->take($take)
                ->get();
         
                return $movies;       
-               
     }
-    
+
 }
